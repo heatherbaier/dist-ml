@@ -13,12 +13,19 @@ The take-away from this is that it is important to not request more than you nee
 #### Basic Commands to Understand the Job Queue
 
 If you are not getting scheduled, there are a few basic commands you can try to debug the issue. A few helpful options include:
+
 `qstat` - Provides a list of all jobs currently in the system, requested times, status ("R" for running, "Q" for in queue) and other factors.
+
 `qstat -u <username>` - I.e., "qstat -u dsmillerrunfol".  Provides a list of all of your current jobs - and `jobIDs` - currently in the system.
+
 `showstats` - Provides a synopsis of cluster-wide availability.
+
 `pbstop` - Shows specific use of clusters and nodes at a given time.
+
 `checkjob <jobID>` - Show detailed information on what the job has requested, and some debug information regarding why a job hasn't started (or, if it's running, run statistics).
+
 `showstart` - Shows the systems estimate for when a job will start (or when it started, if already underway).  
+
 `showq` - Shows the full queue of jobs waiting to be scheduled.  `showq - u <username>` shows your queue.
 
 ####
