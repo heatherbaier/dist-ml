@@ -69,6 +69,8 @@ source "/usr/local/anaconda3-2021.05/etc/profile.d/conda.csh"
 module load anaconda3/2021.05
 module load python/usermodules
 
+unsetenv PYTHONPATH
+
 conda activate aml35
 
 cd dml
