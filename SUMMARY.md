@@ -30,6 +30,10 @@
 * [Introduction](introduction-to-distributed-ml/introduction.md)
 * [Example Dataset](introduction-to-distributed-ml/example-dataset.md)
 
+## Distributed sklearn
+* [Introduction](distributed-scikit/introduction.md)
+* [Grid Search](distributed-scikit/gridSearch.md)
+
 ## Distributed ML with PyTorch
 
 * [With CUDA](distributed-ml-with-pytorch/with-cuda.md)
