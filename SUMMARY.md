@@ -25,21 +25,21 @@
 * [MPI & Python](parallel-computing/mpi-and-python.md)
 * [Launching Parallel Programs on the HPC using MPI](parallel-computing/launching-parallel-programs-on-the-hpc-using-mpi.md)
 
-## Introduction to Distributed ML
+## Example Datasets
 
-* [Introduction](introduction-to-distributed-ml/introduction.md)
 * [Example Dataset](introduction-to-distributed-ml/example-dataset.md)
 
 ## Distributed sklearn
 * [Introduction](distributed-scikit/introduction.md)
 * [Grid Search](distributed-scikit/gridSearch.md)
+* [Random Forest](distributed-scikit/rf.md)
 
-## Distributed ML with PyTorch
+## Distributed PyTorch
 
 * [With CUDA](distributed-ml-with-pytorch/with-cuda.md)
 * [Without CUDA](distributed-ml-with-pytorch/without-cuda.md)
 
-## Distributed ML with TensorFlow
+## Distributed TensorFlow
 
 * [MultiWorkerMirroredStrategy](distributed-ml-with-tensorflow/multiworkermirroredstrategy.md)
 
