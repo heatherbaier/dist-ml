@@ -31,7 +31,7 @@
 
 ## Distributed sklearn
 * [Introduction](distributed-scikit/introduction.md)
-* [Grid Search](distributed-scikit/gridSearch.md)
+* [Random Search](distributed-scikit/randomSearch.md)
 * [Random Forest](distributed-scikit/rf.md)
 
 ## Distributed PyTorch
