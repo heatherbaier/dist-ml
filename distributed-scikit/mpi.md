@@ -34,7 +34,7 @@ mvp2run python example.py >& output.out
 
 # Python Script
 
-The python script has a number of important features, but at it's heart we are trying to do the exact same thing as we did in the single-node parallelization case: create a set of CSVs containing models tested with different parameters (see [single node parallelization](distributed-scikit/randomSearch.md)). A few key things to pay attention to:
+The python script has a number of important features, but at it's heart we are trying to do the exact same thing as we did in the simple node parallelization case: create a set of CSVs containing models tested with different parameters (see [the simple random search](distributed-scikit/randomSearch.md)). A few key things to pay attention to:
 1) First, we are generating a list of 1000 parameters "C", but creating that list on our master process - i.e., rank 0.
 2) Then, we're sending *pieces* of that list out to all of the workers.  This is done by first creating chunks (i.e., slices of the list of parameters), and then sending those chunks out to each worker process.
 3) Finally, on each worker process, we're receiving the paramters it needs to test, loading the data, fitting the model, and saving the results into a CSV.

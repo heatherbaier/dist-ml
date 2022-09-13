@@ -31,11 +31,10 @@
 
 ## Distributed sklearn
 * [Introduction](distributed-scikit/introduction.md)
-### Single Node Parallelization
-* [Random Search](distributed-scikit/randomSearch.md)
+* [Random Search - Simple](distributed-scikit/randomSearch.md)
+* [Random Search - MPI](distributed-scikit/mpi.md)
 * [Random Forest](distributed-scikit/rf.md)
-### Multi-Node Distribution
-* [Random Search](distributed-scikit/mpi.md)
+
 
 ## Distributed PyTorch
 
