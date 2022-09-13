@@ -16,6 +16,7 @@ Next, follow the standard steps for creating a Conda environment. Use the follow
 ```
 conda create -n [ENVNAME]
 ```
+(note many of the examples assume your envname is "aml35" and you use python=3.5, i.e. `conda create -n "aml35" python=3.5`)
 
 Next, activate your new environment by typing:
 
@@ -32,5 +33,5 @@ conda info --envs
 Once you've activated your environment, you can install any packages you need for a program using standard pip install commands. I.e.:
 
 ```
-pip install pandas
+conda install pandas
 ```
