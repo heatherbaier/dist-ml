@@ -22,15 +22,14 @@
 
 * [Introduction](parallel-computing/introduction.md)
 * [Multiprocessing](parallel-computing/multiprocessing.md)
-* [MPI & Python](parallel-computing/mpi-and-python.md)
-* [Launching Programs on the HPC using MPI](parallel-computing/launching-parallel-programs-on-the-hpc-using-mpi.md)
+* [MPI Basics](parallel-computing/mpi-and-python.md)
+* [Python & MPI](parallel-computing/launching-parallel-programs-on-the-hpc-using-mpi.md)
 
 ## Example Datasets
 
 * [Example Datasets](introduction-to-distributed-ml/example-dataset.md)
 
 ## Distributed sklearn
-* [Introduction](distributed-scikit/introduction.md)
 * [Random Search - Simple](distributed-scikit/randomSearch.md)
 * [Random Search - MPI](distributed-scikit/mpi.md)
 * [Random Forest](distributed-scikit/rf.md)
