@@ -10,7 +10,7 @@
 
 ## The Batch System
 
-* [👩🌾 👩🌾 What is the batch system?](the-batch-system/what-is-the-batch-system.md)
+* [🌾 What is a batch system?](the-batch-system/what-is-the-batch-system.md)
 * [👷 Jobs](the-batch-system/jobs.md)
 * [Interactive Jobs](the-batch-system/interactive-jobs.md)
 * [Non-Interactive Jobs](the-batch-system/non-interactive-jobs.md)
