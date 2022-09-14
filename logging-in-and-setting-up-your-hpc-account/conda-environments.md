@@ -16,7 +16,7 @@ Next, follow the standard steps for creating a Conda environment. Use the follow
 ```
 conda create -n [ENVNAME]
 ```
-(note many of the examples assume your envname is "aml35" and you use python=3.5, i.e. `conda create -n "aml35" python=3.5`)
+(note some of the scikit learn examples assume your envname is "aml35" and you use python=3.5, i.e. `conda create -n "aml35" python=3.5`)
 
 Next, activate your new environment by typing:
 

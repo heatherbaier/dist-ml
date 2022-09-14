@@ -3,7 +3,7 @@
 Non-Interactive jobs are much more common, however they require what we call a job script. This is just a text file that might look like the following:
 
 ```
-!/bin/tcsh
+#!/bin/tcsh
 #PBS -N demojob
 #PBS -l nodes=1:vortex:ppn=12
 #PBS -l walltime=00:30:00
