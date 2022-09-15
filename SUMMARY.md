@@ -4,11 +4,11 @@
 
 ## Logging in and Setting up your HPC Account
 
-* [Requesting an Account](logging-in-and-setting-up-your-hpc-account/create.md)
+* [🎉 Requesting an Account](logging-in-and-setting-up-your-hpc-account/create.md)
 * [👋 Login & Basic Setup](logging-in-and-setting-up-your-hpc-account/login-and-basic-setup.md)
 * [🗺 PBSTOP - Your Cluster Roadmap](logging-in-and-setting-up-your-hpc-account/pbstop-your-cluster-roadmap.md)
 * [🐍 Conda Environments](logging-in-and-setting-up-your-hpc-account/conda-environments.md)
-* [🐍 Uploading Files](logging-in-and-setting-up-your-hpc-account/filezilla.md)
+* [🔥 Uploading Files](logging-in-and-setting-up-your-hpc-account/filezilla.md)
 ## The Batch System
 
 * [🌾 What is a batch system?](the-batch-system/what-is-the-batch-system.md)
