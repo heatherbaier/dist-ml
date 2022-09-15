@@ -4,6 +4,7 @@
 
 ## Logging in and Setting up your HPC Account
 
+* [Requesting an Account](logging-in-and-setting-up-your-hpc-account/create.md)
 * [👋 Login & Basic Setup](logging-in-and-setting-up-your-hpc-account/login-and-basic-setup.md)
 * [🗺 PBSTOP - Your Cluster Roadmap](logging-in-and-setting-up-your-hpc-account/pbstop-your-cluster-roadmap.md)
 * [🐍 Conda Environments](logging-in-and-setting-up-your-hpc-account/conda-environments.md)
