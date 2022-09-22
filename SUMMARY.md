@@ -9,8 +9,8 @@
 * [🗺 PBSTOP - Your Cluster Roadmap](logging-in-and-setting-up-your-hpc-account/pbstop-your-cluster-roadmap.md)
 * [🐍 Conda Environments](logging-in-and-setting-up-your-hpc-account/conda-environments.md)
 * [🔥 Uploading Files](logging-in-and-setting-up-your-hpc-account/filezilla.md)
-## The Batch System
 
+## The Batch System
 * [🌾 What is a batch system?](the-batch-system/what-is-the-batch-system.md)
 * [👷 Jobs](the-batch-system/jobs.md)
 * [Interactive Jobs](the-batch-system/interactive-jobs.md)
@@ -19,15 +19,14 @@
 * [Checking the status of your jobs](the-batch-system/checking-the-status-of-your-jobs.md)
 * [Deleting Jobs](the-batch-system/deleting-jobs.md)
 
-## Parallel Computing
-
+## Parallel & Distributed Computing
 * [Introduction](parallel-computing/introduction.md)
 * [Multiprocessing](parallel-computing/multiprocessing.md)
 * [MPI Basics](parallel-computing/mpi-and-python.md)
 * [Python & MPI](parallel-computing/launching-parallel-programs-on-the-hpc-using-mpi.md)
+* [Python & Dask](parallel-computing/dask_intro.md)
 
 ## Example Datasets
-
 * [Example Datasets](introduction-to-distributed-ml/example-dataset.md)
 
 ## Distributed sklearn
@@ -35,9 +34,7 @@
 * [Random Search - MPI](distributed-scikit/mpi.md)
 * [Random Forest](distributed-scikit/rf.md)
 
-
 ## Distributed PyTorch
-
 * [With CUDA](distributed-ml-with-pytorch/with-cuda.md)
 * [Without CUDA](distributed-ml-with-pytorch/without-cuda.md)
 
