@@ -7,6 +7,7 @@ Dask is an alternative package to MPI and Torque for distributed computing.  We 
 To use dask in the HPC environment, you need to install both the jobqueue module (which handles scheduling with Torque) and dask itself (which handles intra-node communication).  Dask is unique as compared to MPI in that it handles scheduling itself - i.e., you will not request the nodes or processors you want upfront, but rather launch a python file that then requests resources through dask.
 
 `conda install dask`
+
 `conda install dask-jobqueue -c conda-forge`
 
 This example was tested with dask 2022.9.1 and dask-jobqueue 0.8.0.
