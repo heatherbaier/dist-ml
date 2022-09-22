@@ -32,7 +32,7 @@ unsetenv PYTHONPATH
 conda activate aml35
 
 cd /sciclone/home20/dsmillerrunfol/myPythonFileDirectory
-python dask.py >& out_dask.out
+python dask_example.py >& out_dask.out
 ```
 
 # Python file
@@ -60,8 +60,6 @@ cluster_kwargs = {
     "processes": 12,
     "memory": "32GB",
     "interface": "ib0",
-    # "job_script_prologue": ["setenv src_dir /sciclone/home20/dsmillerrunfol"],
-    # "job_extra_directives": ["-j oe"],
 }
 
 cluster = PBSCluster(**cluster_kwargs)

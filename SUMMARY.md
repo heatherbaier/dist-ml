@@ -33,6 +33,7 @@
 * [Random Search - Simple](distributed-scikit/randomSearch.md)
 * [Random Search - MPI](distributed-scikit/mpi.md)
 * [Random Forest](distributed-scikit/rf.md)
+* [Dask & sklearn](distributed-scikit/dask.md)
 
 ## Distributed PyTorch
 * [With CUDA](distributed-ml-with-pytorch/with-cuda.md)
