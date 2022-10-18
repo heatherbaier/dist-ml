@@ -36,12 +36,8 @@
 * [Dask & sklearn](distributed-scikit/dask.md)
 
 ## Distributed PyTorch
-* [With CUDA](distributed-ml-with-pytorch/with-cuda.md)
-* [Without CUDA](distributed-ml-with-pytorch/without-cuda.md)
-
-## Distributed TensorFlow
-
-* [MultiWorkerMirroredStrategy](distributed-ml-with-tensorflow/multiworkermirroredstrategy.md)
+* [Basics of Torch](distributed-ml-with-pytorch/torchBasics.md)
+* [PyTorch + DASK](distributed-ml-with-pytorch/torchDask.md)
 
 ## Other Distributed Training Frameworks
 
