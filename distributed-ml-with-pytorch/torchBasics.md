@@ -47,7 +47,8 @@ cd torchEX
 mvp2run -c 1 python3 basicTorch.py >& torch_output.out
 ```
 
-The python is where all of our magic is going to happen (I named my file "basicTorch.py"):
+The python is where all of our magic is going to happen (I named my file "basicTorch.py").
+Note this network is going to be *terrible*, and is mearly for demonstration purposes.
 
 ```python
 import torch
@@ -90,18 +91,21 @@ print(images.class_to_idx)
 #In our data loader above, we rescaled our images to all be 64x64
 #(with 3 bands - hence the 3!)
 #This is the input into the first linear layer.
-#Note the final line (nn.Linear(64,21) - the 21 is the number
+#Note the final line (nn.Linear(32,21) - the 21 is the number
 #of classes in the UC Merced satellite imagery dataset).
 class NeuralNetwork(nn.Module):
     def __init__(self):
         super().__init__()
         self.flatten = nn.Flatten()
         self.simpleNet = nn.Sequential(
-            nn.Linear(64*64*3, 128),
+            nn.Linear(64*64*3, 512),
+            nn.ReLU(),
+            nn.Linear(512, 128),
             nn.ReLU(),
             nn.Linear(128, 64),
             nn.ReLU(),
-            nn.Linear(64, 21)
+            nn.Linear(64, 32),
+            nn.Linear(32, 21)
         )
 
     def forward(self, x):
@@ -141,12 +145,12 @@ def trainModel(dataLoader, model, loss_fn, optimizer):
             loss, current = loss.item(), batch*len(X)
             print("Loss: " + str(loss) + " | " + str(current) + " of " + str(size))
     
-epochs = 5
+epochs = 20
 for t in range(epochs):
     print("Epoch " + str(t))
     trainModel(loader, model, loss_fn, optimizer)
 
-#At this point, we have a model that's been fit across 5 epochs.
+#At this point, we have a model that's been fit across 20 epochs.
 #Let's output some stats about our model.
 
 def accuracyStatistics(model, dataLoader):
