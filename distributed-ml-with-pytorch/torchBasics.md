@@ -151,7 +151,7 @@ for t in range(epochs):
     trainModel(loader, model, loss_fn, optimizer)
 
 #At this point, we have a model that's been fit across 20 epochs.
-#Let's output some stats about our model.
+#Let's output a crosstab.
 
 def accuracyStatistics(model, dataLoader):
     model.eval()
