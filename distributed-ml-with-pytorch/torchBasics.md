@@ -1,5 +1,5 @@
-# What is Torch?
-Torch is a very popular library for handling matrix operations on GPU (similar to numpy, but with a focus on GPU support).  The most common way to use Torch - at least in this authors world - is through a wrapper called PyTorch.  This brief guide will show an example of implementing code in PyTorch on our cluster, but we won't be distributing it just yet.
+# What is Torch, and why this guide?
+This guide provides a basic, single-node single-core implementation of a Torch script.  It serves as the basis for our guide on [how to parallelize deep learning models](distributed-ml-with-pytorch/torchDist.md). Torch is a very popular library for handling matrix operations on GPU (similar to numpy, but with a focus on GPU support).  The most common way to use Torch - at least in this authors world - is through a wrapper called PyTorch.  This brief guide will show an example of implementing code in PyTorch on our cluster, but we won't be distributing it just yet.
 
 # Example Data
 Our example dataset is going to be a satellite dataset from UC Merced.  You can download it from:
@@ -48,7 +48,7 @@ mvp2run -c 1 python3 basicTorch.py >& torch_output.out
 ```
 
 The python is where all of our magic is going to happen (I named my file "basicTorch.py").
-Note this network is going to be *terrible*, and is mearly for demonstration purposes.
+Note this network is going to be *terrible*, and we aren't even splitting our data. It is mearly for technical demonstration purposes.
 
 ```python
 import torch
