@@ -24,6 +24,13 @@ which will put our other requests in for us.
 
 Because we will be printing to a file to generate our log, you may also want to familiarize yourself with the linux terminal `watch` command.
 
+Note that if you have to kill your job, you can type in:
+`qstat -u <yourusername>`
+
+Identify the jobID that is asscoiated with the name specified in this job script - here it is demojob.  You can then do:
+`qdel <jobID>` 
+to kill the job.  This will then kill all Dask jobs as well (though it takes a minute for them to clear out).
+
 ```bash
 #!/bin/tcsh
 #PBS -N demojob
@@ -181,7 +188,7 @@ def initDist(rank, size, runID, EPOCHS_COUNT, backend='gloo'):
     #First, we need to distribute our actual model architecture to all nodes.
     #This is only done once.
     logger(str(rank) + ": Loading model.")
-    model = models.resnet101(pretrained=False)#NeuralNetwork().to(device)
+    model = models.resnet101(pretrained=False)
     ddp_model = DDP(model, device_ids=None) #For GPUs, you have to specify device IDs here.
     logger(str(rank) + ": Model loaded.")
 
@@ -279,7 +286,7 @@ def accuracyStatistics(model, dataLoader):
 #as we want to test agains the whole thing.
 #(Note: in practice we would want a test/train split,
 #but I haven't created two datasets for that purpose here.)
-model = models.resnet101(pretrained=False)#NeuralNetwork()
+model = models.resnet101(pretrained=False)
 
 #Now we need to load the weights for the network we just solved in Dask-world:
 model.load_state_dict(torch.load("/sciclone/home20/dsmillerrunfol/torchEX/checkpoints/" + str(runID) + "_" + str(EPOCHS_COUNT-1)+".checkpoint"))
