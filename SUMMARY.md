@@ -37,7 +37,7 @@
 
 ## Distributed PyTorch
 * [Basics of Torch](distributed-ml-with-pytorch/torchBasics.md)
-* [PyTorch + DASK](distributed-ml-with-pytorch/torchDask.md)
+* [PyTorch + DASK](distributed-ml-with-pytorch/torchDist.md)
 
 ## Other Distributed Training Frameworks
 
