@@ -15,7 +15,7 @@
 * [👷 Jobs](the-batch-system/jobs.md)
 * [Interactive Jobs](the-batch-system/interactive-jobs.md)
 * [Non-Interactive Jobs](the-batch-system/non-interactive-jobs.md)
-* [Running Python within a job](the-batch-system/running-python-within-a-job.md)
+* [Python + Conda in a Job](the-batch-system/running-python-within-a-job.md)
 * [Checking the status of your jobs](the-batch-system/checking-the-status-of-your-jobs.md)
 * [Deleting Jobs](the-batch-system/deleting-jobs.md)
 
