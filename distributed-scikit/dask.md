@@ -1,5 +1,5 @@
 # Dask
-This presumes you have already done the basic [dask guide](parallel-computing/dask_intro.md).
+This presumes you have already done the basic [dask guide](https://hmbaier.gitbook.io/distributed-ml-w-and-m/using-python-and-batch/dask_intro).
 
 Dask is an alternative scheduling and job distribution system that can be flexibly deployed across a wide range of HPC environments.  Writing in dask can allow your script to quickly translate between different HPC environments, at the cost of some increased overhead in some scenarios.
 

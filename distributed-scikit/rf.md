@@ -1,6 +1,6 @@
 # Random Forests
 
-This presumes that you have already completed the examples in the [Random Search](distributed-scikit/randomSearch.md) section of the guide.
+This presumes that you have already completed the examples in the Random Search section of the guide.
 
 ## Introduction & Data
 A Random Forest Classifier is made up of many independent classification (or regression) trees, making it a perfect candidate for parallelization across multiple processes.  Following that, scikit-learn has inbuilt options that allow you to fit these trees across multiple processors, if they are available.
@@ -12,7 +12,7 @@ To facilitate this comparison, we have created a bigger version of the student a
 [studentpor_bigger.csv](https://github.com/heatherbaier/dist-ml/files/9528910/studentpor_bigger.csv)
 
 ## Job File
-First, we'll need to setup our job file.  Most things here are similar to what you saw in the [Random Search](distributed-scikit/randomSearch.md) example, but with some key differences.
+First, we'll need to setup our job file.  Most things here are similar to what you saw in the Random Search example, but with some key differences.
 
 ```Job File
 #!/bin/tcsh
@@ -37,7 +37,7 @@ mvp2run -c 1 python simplePar.py >& output.out
 
 In this job file, you'll want to note two things.  First, we're only requesting one node.  This is because the inbuilt capability of sklearn to distribute only extends to a single node - i.e., you can spin up processes on a single computer at a time.  We'll go into more advanced techniques for multi-node distribution later.
 
-Also important is in the mvp2run, the command -c 1 .  What this is telling the scheduler to do is to create only *one* version of simplePar.py on the node.  Then, the logic in simplePar.py is going to create additional processes to be processed by the other cores on the machine.  This is different than the [Random Search](distributed-scikit/randomSearch.md), where we intentionally created 12 different copies of the python file.
+Also important is in the mvp2run, the command -c 1 .  What this is telling the scheduler to do is to create only *one* version of simplePar.py on the node.  Then, the logic in simplePar.py is going to create additional processes to be processed by the other cores on the machine.  This is different than the Random Search, where we intentionally created 12 different copies of the python file.
 
 ## Python File
 ```Python
