@@ -1,5 +1,5 @@
 # Launching Programs on the HPC using MPI
-Here at William & Mary, we use something called [Message Passing Interface](parallel-computing/mpi-and-python.md), which allows nodes to communicate with one another.  This is a relatively simple interface 
+Here at William & Mary, we use something called Message Passing Interface (i.e., MPI), which allows nodes to communicate with one another.  This is a relatively simple interface 
 
 # Packages
 In order to use MPI from a python environment, we need a package called mpi4py.  You can install it with conda by using `conda install -c conda-forge mpi4py`.  
