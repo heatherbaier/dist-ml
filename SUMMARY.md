@@ -16,7 +16,7 @@
 * [Checking the status of your jobs](the-batch-system/checking-the-status-of-your-jobs.md)
 * [Deleting Jobs](the-batch-system/deleting-jobs.md)
 
-## Using Python in a Batch System
+## Using Python & Batch
 * [🐍 Conda Environments](logging-in-and-setting-up-your-hpc-account/conda-environments.md)
 * [Python + Conda in a Job](the-batch-system/running-python-within-a-job.md)
 * [Python & MPI](parallel-computing/launching-parallel-programs-on-the-hpc-using-mpi.md)
