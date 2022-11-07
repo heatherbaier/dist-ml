@@ -2,7 +2,7 @@
 
 Setting up Conda environments on the cluster is very similar to how you would do it on your local computer. It is _highly recommended_ that you use Conda environments when running code the HPC.
 
-To create a Conda environment and install packages, first copy these two lines into your terminal and hit enter.
+To create a Conda environment and install packages, first log in to a frontend on SciClone with a terminal (i.e., ssh <yourname>@bora.sciclone.em.edu).  After you log in, copy these two lines into your terminal and hit enter.
 
 ```
 source "/usr/local/anaconda3-2021.05/etc/profile.d/conda.csh"
