@@ -1,4 +1,4 @@
-# Running Python within a job with Conda
+# Python + Conda in a Job
 Using python with anaconda on the cluster is nearly identical to how you use it on your frontend to configure environments.
 
 For example, if you follow the instructions in the section on creating [Conda Environments](https://hmbaier.gitbook.io/distributed-ml-w-and-m/logging-in-and-setting-up-your-hpc-account/conda-environments) on the node you log in on, when you [submit jobs](https://hmbaier.gitbook.io/distributed-ml-w-and-m/the-batch-system/non-interactive-jobs) you can then use the same environments like this:

@@ -3,11 +3,9 @@
 * [Distributed ML @ W\&M](README.md)
 
 ## Logging in and Setting up your HPC Account
-
 * [🎉 Requesting an Account](logging-in-and-setting-up-your-hpc-account/create.md)
 * [👋 Login & Basic Setup](logging-in-and-setting-up-your-hpc-account/login-and-basic-setup.md)
 * [🗺 PBSTOP - Your Cluster Roadmap](logging-in-and-setting-up-your-hpc-account/pbstop-your-cluster-roadmap.md)
-* [🐍 Conda Environments](logging-in-and-setting-up-your-hpc-account/conda-environments.md)
 * [🔥 Uploading Files](logging-in-and-setting-up-your-hpc-account/filezilla.md)
 
 ## The Batch System
@@ -15,21 +13,17 @@
 * [👷 Jobs](the-batch-system/jobs.md)
 * [Interactive Jobs](the-batch-system/interactive-jobs.md)
 * [Non-Interactive Jobs](the-batch-system/non-interactive-jobs.md)
-* [Python + Conda in a Job](the-batch-system/running-python-within-a-job.md)
 * [Checking the status of your jobs](the-batch-system/checking-the-status-of-your-jobs.md)
 * [Deleting Jobs](the-batch-system/deleting-jobs.md)
 
-## Parallel & Distributed Computing
-* [Introduction](parallel-computing/introduction.md)
-* [Multiprocessing](parallel-computing/multiprocessing.md)
-* [MPI Basics](parallel-computing/mpi-and-python.md)
+## Using Python in a Batch System
+* [🐍 Conda Environments](logging-in-and-setting-up-your-hpc-account/conda-environments.md)
+* [Python + Conda in a Job](the-batch-system/running-python-within-a-job.md)
 * [Python & MPI](parallel-computing/launching-parallel-programs-on-the-hpc-using-mpi.md)
 * [Python & Dask](parallel-computing/dask_intro.md)
 
-## Example Datasets
-* [Example Datasets](introduction-to-distributed-ml/example-dataset.md)
-
 ## Distributed sklearn
+* [Example Dataset](distributed-scikit/data.md)
 * [Random Search - Simple](distributed-scikit/randomSearch.md)
 * [Random Search - MPI](distributed-scikit/mpi.md)
 * [Random Forest](distributed-scikit/rf.md)
@@ -39,6 +33,3 @@
 * [Basics of Torch](distributed-ml-with-pytorch/torchBasics.md)
 * [PyTorch + DASK](distributed-ml-with-pytorch/torchDist.md)
 
-## Other Distributed Training Frameworks
-
-* [Microsoft's DeepSpeed](other-distributed-training-frameworks/microsofts-deepspeed.md)
