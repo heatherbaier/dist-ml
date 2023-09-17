@@ -1,9 +1,12 @@
-# What is Torch, and why this guide?
-This guide provides a basic, single-node single-core implementation of a Torch script.  It serves as the basis for our guide on [how to parallelize deep learning models](distributed-ml-with-pytorch/torchDist.md). Torch is a very popular library for handling matrix operations on GPU (similar to numpy, but with a focus on GPU support).  The most common way to use Torch - at least in this authors world - is through a wrapper called PyTorch.  This brief guide will show an example of implementing code in PyTorch on our cluster, but we won't be distributing it just yet.
+# Basics of Torch
 
-# Example Data
-Our example dataset is going to be a satellite dataset from UC Merced.  You can download it from:
-https://geolab.wm.edu/assets/static_files/mercerImages.zip
+## What is Torch, and why this guide?
+
+This guide provides a basic, single-node single-core implementation of a Torch script. It serves as the basis for our guide on [how to parallelize deep learning models](../distributed-ml-with-pytorch/distributed-ml-with-pytorch/torchDist.md). Torch is a very popular library for handling matrix operations on GPU (similar to numpy, but with a focus on GPU support). The most common way to use Torch - at least in this authors world - is through a wrapper called PyTorch. This brief guide will show an example of implementing code in PyTorch on our cluster, but we won't be distributing it just yet.
+
+## Example Data
+
+Our example dataset is going to be a satellite dataset from UC Merced. You can download it from: https://geolab.wm.edu/assets/static\_files/mercerImages.zip
 
 Here is some quick python starter code you can use to grab and extract the data:
 
@@ -16,18 +19,17 @@ open("mercerImages.zip", 'wb').write(r.content)
 shutil.unpack_archive("mercerImages.zip")
 ```
 
-Note, for this example I have created a new folder "torchEX" in my home directory.  You do not have to do this, but my examples will presume you did.  If you do not, you'll need to edit your filepaths accordingly.  I also extract the folder as per the lines above - i.e., you'll have a folder called "mercerImages", with ~20 folders inside it named "agriculture", "airplane", etc. - all with images inside them.
+Note, for this example I have created a new folder "torchEX" in my home directory. You do not have to do this, but my examples will presume you did. If you do not, you'll need to edit your filepaths accordingly. I also extract the folder as per the lines above - i.e., you'll have a folder called "mercerImages", with \~20 folders inside it named "agriculture", "airplane", etc. - all with images inside them.
 
-# Environment
-I recommend creating a new environment for using torch, as there are packages and versions that frequently do not play well between sklearn and torch.
-conda create -n torchEnv python=3.9
-conda activate torchEnv
-conda install -c pytorch pytorch=1.12.1 torchvision=0.13.1 pandas
+## Environment
 
-# Basic Torch Net
-Here we're going to implement a basic Torch net on a single node in CPU mode.  The bash script is going to be a very simple one - note we're only going to use a single core (-c 1).
+I recommend creating a new environment for using torch, as there are packages and versions that frequently do not play well between sklearn and torch. conda create -n torchEnv python=3.9 conda activate torchEnv conda install -c pytorch pytorch=1.12.1 torchvision=0.13.1 pandas
 
-```bash j
+## Basic Torch Net
+
+Here we're going to implement a basic Torch net on a single node in CPU mode. The bash script is going to be a very simple one - note we're only going to use a single core (-c 1).
+
+```bash
 #!/bin/tcsh
 #PBS -N torchDemoJob
 #PBS -l nodes=1:vortex:ppn=12
@@ -47,8 +49,7 @@ cd torchEX
 mvp2run -c 1 python3 basicTorch.py >& torch_output.out
 ```
 
-The python is where all of our magic is going to happen (I named my file "basicTorch.py").
-Note this network is going to be *terrible*, and we aren't even splitting our data. It is mearly for technical demonstration purposes.
+The python is where all of our magic is going to happen (I named my file "basicTorch.py"). Note this network is going to be _terrible_, and we aren't even splitting our data. It is mearly for technical demonstration purposes.
 
 ```python
 import torch
@@ -176,5 +177,4 @@ def accuracyStatistics(model, dataLoader):
     return(cm)
 
 print(accuracyStatistics(model, loader))
-
 ```

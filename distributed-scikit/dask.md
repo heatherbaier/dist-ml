@@ -1,13 +1,18 @@
-# Dask
-This presumes you have already done the basic [dask guide](https://hmbaier.gitbook.io/distributed-ml-w-and-m/using-python-and-batch/dask_intro).
+# Dask & sklearn
 
-Dask is an alternative scheduling and job distribution system that can be flexibly deployed across a wide range of HPC environments.  Writing in dask can allow your script to quickly translate between different HPC environments, at the cost of some increased overhead in some scenarios.
+## Dask
 
-One advantage of Dask is that it has inbuilt capabilities that allow it to play very nicely with sklearn.  This tutorial shows one such example, using a random search across a set of parameters using nearly entirely inbuilt tools.
+This presumes you have already done the basic [dask guide](https://hmbaier.gitbook.io/distributed-ml-w-and-m/using-python-and-batch/dask\_intro).
 
-# The Job Script
-The job script only launches a single node - a master node.  This will then spawn other processes.  You do *not* specify the total resources you want here - i.e., you only want this to ever have one node.
-```sh
+Dask is an alternative scheduling and job distribution system that can be flexibly deployed across a wide range of HPC environments. Writing in dask can allow your script to quickly translate between different HPC environments, at the cost of some increased overhead in some scenarios.
+
+One advantage of Dask is that it has inbuilt capabilities that allow it to play very nicely with sklearn. This tutorial shows one such example, using a random search across a set of parameters using nearly entirely inbuilt tools.
+
+## The Job Script
+
+The job script only launches a single node - a master node. This will then spawn other processes. You do _not_ specify the total resources you want here - i.e., you only want this to ever have one node.
+
+```
 #!/bin/tcsh
 #PBS -N demojob
 #PBS -l nodes=1:vortex:ppn=12
@@ -26,8 +31,9 @@ cd /sciclone/home20/dsmillerrunfol/myPythonFileDirectory
 python dask_example.py >& out_dask.out
 ```
 
-# The Python Script
-Much of our logic for submitting jobs now lives in our python script.  Below, you will see a heavily commented version of a python script which searches across a wide range of hyperparameters to identify the best combination using a dask backend.
+## The Python Script
+
+Much of our logic for submitting jobs now lives in our python script. Below, you will see a heavily commented version of a python script which searches across a wide range of hyperparameters to identify the best combination using a dask backend.
 
 ```python
 from dask.distributed import Client

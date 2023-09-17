@@ -1,7 +1,9 @@
-# Random Search
-A random search is the most obvious - and easiest - way to leverage distributed computation capabilities.  In a random search, you are attempting to identify the best hyperparameters for a given model, but each model can be run independently.  Thus, we can spin up models across dozens of nodes without worrying about communications within a given job. This is certainly not the best way you can use the HPC for machine learning, but it's an excellent entry point to start to understand how multi-node computing works in the context of Machine Learning.
+# Random Search - Simple
+
+A random search is the most obvious - and easiest - way to leverage distributed computation capabilities. In a random search, you are attempting to identify the best hyperparameters for a given model, but each model can be run independently. Thus, we can spin up models across dozens of nodes without worrying about communications within a given job. This is certainly not the best way you can use the HPC for machine learning, but it's an excellent entry point to start to understand how multi-node computing works in the context of Machine Learning.
 
 ## Setting up your Conda environment
+
 We're going to need a few things for our conda environment (which should be using py3.5):
 
 conda activate aml35
@@ -10,14 +12,14 @@ conda install scikit-learn==0.19.2
 
 conda install pandas==0.23.4
 
-
 ## Setting up your Python File
 
-There are a number of ways to launch a python file on the cluster - for example, you can have a "main" script which tells workers when to run, submits it's own jobs, or just handles communications.  Alternatively, you can run the same script across all nodes, using unique identifiers to ensure you don't run into conflicts (i.e., two nodes trying to write to the same file at the same time).
+There are a number of ways to launch a python file on the cluster - for example, you can have a "main" script which tells workers when to run, submits it's own jobs, or just handles communications. Alternatively, you can run the same script across all nodes, using unique identifiers to ensure you don't run into conflicts (i.e., two nodes trying to write to the same file at the same time).
 
-For this example, we'll take the simplest road which is to have the same python file launch on every node for our grid search.  This is fairly straightforward - we're just going to load in a scikit-learn model and run it, with the caveat that we're going to output a unique file for each node that contains the outputs we care most about.
+For this example, we'll take the simplest road which is to have the same python file launch on every node for our grid search. This is fairly straightforward - we're just going to load in a scikit-learn model and run it, with the caveat that we're going to output a unique file for each node that contains the outputs we care most about.
 
 First, we'll have our python file:
+
 ```
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
@@ -65,6 +67,7 @@ f.close()
 ```
 
 And, second, our job file:
+
 ```
 #!/bin/tcsh
 #PBS -N demojob
@@ -83,14 +86,12 @@ conda activate aml35
 
 cd dml
 mvp2run -c 24 python distributeSearch.py >& output.out
-
 ```
 
-A few important things to note here.  First, we now have 2 nodes with 12 processors each specified - so, 24 total processors.
+A few important things to note here. First, we now have 2 nodes with 12 processors each specified - so, 24 total processors.
 
-Second, we now have mvapich2-ib loaded.  We'll use that to get mvp2run to work, which is what we use to tell the cluster to create 24 different copies of our python file, one on each node.
+Second, we now have mvapich2-ib loaded. We'll use that to get mvp2run to work, which is what we use to tell the cluster to create 24 different copies of our python file, one on each node.
 
-Finally, at the bottom you'll see we now call mvp2run - the -c 24 says to spin up 24 total copies of our python file.  With all of that, you'll get 24 outputs in your /results/ file, one for each run.  You can concatenate the ouputs with:
+Finally, at the bottom you'll see we now call mvp2run - the -c 24 says to spin up 24 total copies of our python file. With all of that, you'll get 24 outputs in your /results/ file, one for each run. You can concatenate the ouputs with:
 
 `*csv > all.csv`
-

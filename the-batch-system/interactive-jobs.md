@@ -22,7 +22,7 @@ Let's break down this line:
 
 If you run the above line from your home directory, you should see something similar to:
 
-![](<../.gitbook/assets/ijob (1).png>)
+![](../.gitbook/assets/ijob.png)
 
 On line 11 in the screenshot above, you can see **\[vx01]** as opposed to the **\[vortex]** in line 12. This means that now that you have launched a job, you are no longer running on the main Vortex infrastructure. Instead, you have now checked out 12 processors on Vortex Node 1 and are running your code from there. If the line read instead **\[vx02]**, that would indicate you were on Vortex Node 2.&#x20;
 

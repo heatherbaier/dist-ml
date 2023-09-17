@@ -1,10 +1,12 @@
-# What is Dask?
+# Python & Dask
 
-Dask is an alternative package to MPI and Torque for distributed computing.  We can leverage it locally on our clusters using Dask on top of Torque - i.e., Dask requests resources from Torque dynamically.  In the future, we hope to be able to run Dask natively (i.e., without Torque at all).  Today, using Dask requires a dual-layer job queue, in which first you use Torque to submit a master Dask job, and then second the Dask master uses Torque to schedule resources.  The advantage is that Dask plays very nicely with many widely used packages (i.e., Pandas, sklearn), and has many of it's own highly distributed implementations of ML algorithms.  This can greatly reduce the complexity of your implementations, or allow you to more flexibly take advantage of all resources for a given job.
+## What is Dask?
 
-# Installing Dask
+Dask is an alternative package to MPI and Torque for distributed computing. We can leverage it locally on our clusters using Dask on top of Torque - i.e., Dask requests resources from Torque dynamically. In the future, we hope to be able to run Dask natively (i.e., without Torque at all). Today, using Dask requires a dual-layer job queue, in which first you use Torque to submit a master Dask job, and then second the Dask master uses Torque to schedule resources. The advantage is that Dask plays very nicely with many widely used packages (i.e., Pandas, sklearn), and has many of it's own highly distributed implementations of ML algorithms. This can greatly reduce the complexity of your implementations, or allow you to more flexibly take advantage of all resources for a given job.
 
-To use dask in the HPC environment, you need to install both the jobqueue module (which handles scheduling with Torque) and dask itself (which handles intra-node communication).  Dask is unique as compared to MPI in that it handles scheduling itself - i.e., you will not request the nodes or processors you want upfront, but rather launch a python file that then requests resources through dask.
+## Installing Dask
+
+To use dask in the HPC environment, you need to install both the jobqueue module (which handles scheduling with Torque) and dask itself (which handles intra-node communication). Dask is unique as compared to MPI in that it handles scheduling itself - i.e., you will not request the nodes or processors you want upfront, but rather launch a python file that then requests resources through dask.
 
 `conda install dask`
 
@@ -12,12 +14,13 @@ To use dask in the HPC environment, you need to install both the jobqueue module
 
 This example was tested with dask 2022.9.1 and dask-jobqueue 0.8.0.
 
-# Master job script
+## Master job script
 
-The job script you directly submit will run one job, on a master node.  This job will execute a python script, which will then itself launch other jobs.
+The job script you directly submit will run one job, on a master node. This job will execute a python script, which will then itself launch other jobs.
 
 The master job script is similar to any other script you may have written:
-```sh
+
+```
 #!/bin/tcsh
 #PBS -N demojob
 #PBS -l nodes=1:vortex:ppn=12
@@ -36,9 +39,9 @@ cd /sciclone/home20/dsmillerrunfol/myPythonFileDirectory
 python dask_example.py >& out_dask.out
 ```
 
-# Python file
+## Python file
 
-The python file is where additional jobs will be launched to solve for whatever task you are interested in.  Here we're going to do a very simple example of chaining two functions together across an arbitrary number of processes.
+The python file is where additional jobs will be launched to solve for whatever task you are interested in. Here we're going to do a very simple example of chaining two functions together across an arbitrary number of processes.
 
 ```python
 from dask.distributed import Client
