@@ -41,6 +41,7 @@
 ## Distributed PyTorch - MPI
 
 * [Basics](distributed-pytorch-mpi/basics.md)
-* [The Dataloader](distributed-pytorch-mpi/the-dataloader.md)
+* [PyTorch Distributed](distributed-pytorch-mpi/pytorch-distributed.md)
 * [The Job Script](distributed-pytorch-mpi/the-job-script.md)
+* [The Dataloader](distributed-pytorch-mpi/the-dataloader.md)
 * [The Training Script](distributed-pytorch-mpi/the-training-script.md)
