@@ -12,7 +12,7 @@ Then, submit and interactive job in each terminal, requesting 1 node and 12 proc
 qsub -I -l nodes=1:vortex:ppn=12,walltime=01:00:00
 ```
 
-<figure><img src="../.gitbook/assets/Screenshot from 2023-09-18 13-42-31.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screen Shot 2023-09-18 at 1.45.34 PM.png" alt=""><figcaption></figcaption></figure>
 
 First, we need to figure out the IP address of our master nodes. It doesn't matter which node this is, so in either of your terminals, type:
 
@@ -21,5 +21,7 @@ hostname -i
 ```
 
 This will give you the IP address of your node.
+
+<figure><img src="../.gitbook/assets/Screen Shot 2023-09-18 at 1.47.37 PM.png" alt=""><figcaption></figcaption></figure>
 
 Next, type in&#x20;
