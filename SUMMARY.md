@@ -37,13 +37,3 @@
 
 * [Basics of Torch](distributed-pytorch-dask/torchbasics.md)
 * [PyTorch + DASK](distributed-pytorch-dask/torchdist.md)
-
-## Distributed PyTorch - MPI
-
-* [Basics](distributed-pytorch-mpi/basics.md)
-* [PyTorch Distributed](distributed-pytorch-mpi/pytorch-distributed.md)
-* [Mini Example](distributed-pytorch-mpi/mini-example.md)
-* [The Job Script](distributed-pytorch-mpi/the-job-script.md)
-* [The workers file](distributed-pytorch-mpi/the-workers-file.md)
-* [The Dataloader](distributed-pytorch-mpi/the-dataloader.md)
-* [The Training Script](distributed-pytorch-mpi/the-training-script.md)
