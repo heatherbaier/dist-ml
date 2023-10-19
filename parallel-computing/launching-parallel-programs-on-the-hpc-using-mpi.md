@@ -8,6 +8,8 @@ Here at William & Mary, we use something called Message Passing Interface (i.e.,
 
 In order to use MPI from a python environment, we need a package called mpi4py. You can install it with conda by using `conda install -c conda-forge mpi4py`.
 
+Please note the below was tested with mpi4py version 2.0.0.  
+
 ## Job Script
 
 Our initial job script is very similar to other job scripts you will have seen in this tutorial. A few things to note include:
@@ -50,7 +52,6 @@ You can arbitrarily extend this communication logic to implement a wide range of
 
 ```python
 from mpi4py import MPI
-import pandas as pd
 import random
 
 comm = MPI.COMM_WORLD
@@ -75,7 +76,6 @@ if(MPI.COMM_WORLD.Get_rank() == 0):
 if(MPI.COMM_WORLD.Get_rank() == 1):
     #I want to load the data on individual nodes - 
     #not send it over the network, as that is much slower.
-    data = pd.read_csv('studentpor_bigger.csv')
     parameters = comm.recv(source=0, tag=11)
     print(parameters)
 
