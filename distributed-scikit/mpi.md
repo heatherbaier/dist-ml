@@ -10,6 +10,10 @@ In order to use MPI from a python environment, we need a package called mpi4py. 
 
 Please note this was tested using mpi4py 2.0.0.
 
+# Data
+An artifically enlarged version of the student alcohol dataset has been created for you to test this script with, which can be downloaded at:
+http://geolab.wm.edu/data/studentpor_bigger.csv
+
 # Job Script
 Our job script will be very similar to what we had in the parallelization case, but with a few key differences.  First, note that we're requesting 2 nodes with 12 cores each - so, a total of 24 processors.  Second, we're calling mvapich2-ib as a module, which allows us to start our python file with mvp2run - a convenient wrapper around MPI.
 
@@ -94,7 +98,7 @@ if(MPI.COMM_WORLD.Get_rank() != 0):
 
         #Percent accuracy:
         acc = accuracy_score(y, logC.predict(X))
-        f = open("/sciclone/home20/dsmillerrunfol/dml/results/" + str(p)+ ".csv", "w")
+        f = open("/sciclone/home/dsmillerrunfol/dml/results/" + str(p)+ ".csv", "w")
         f.write(str(p) + "," + str(acc) + "\n")
         f.close()
 
