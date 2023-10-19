@@ -27,7 +27,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 import random
 
-data = pd.read_csv('studentpor.csv')
+data = pd.read_csv('student-por.csv')
 
 #We'll run a model that attempts to predict if a student
 #if a student has very low (0) or very high (5) weekend
@@ -57,7 +57,7 @@ logC.fit(X, y)
 acc = accuracy_score(y, logC.predict(X))
 
 #Save it into a file with our C:
-f = open("/sciclone/home20/dsmillerrunfol/dml/results/" + str(C)+ ".csv", "w")
+f = open("/sciclone/home/dsmillerrunfol/dml/results/" + str(C)+ ".csv", "w")
 f.write(str(C) + "," + str(acc) + "\n")
 f.close()
 
