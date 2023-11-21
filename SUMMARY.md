@@ -41,4 +41,4 @@
 ## Kubernetes
 * [Basics of Kubernetes](k8s/intro.md)
 * [Your First K8S Deployment](k8s/yourFirstDeployment.md)
-* [Python & Conda in K8S](k8s/python_conda.md)
+* [Persistence & Python](k8s/python_conda.md)
