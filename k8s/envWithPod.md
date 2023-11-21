@@ -2,7 +2,7 @@
 Here, we'll install Torch into a conda environment, but we'll do it using a pod dedicated to the install.  Unlike in the previous example, we won't be accessing conda interactively.
 
 ## Installing Conda Packages with a Dedicated Pod
-In order to install a conda package with a dedicated pod, we'll need to do all of the usual installation steps in an automated fashion.  This can be a fantastic way to setup your environments, as it allows you to quicky construct / deconstruct initial environments and test that they worked in a single script.
+In order to install a conda package with a dedicated pod, we'll need to do all of the usual installation steps in an automated fashion.  This can be a fantastic way to setup your environments, as it allows you to quicky construct / deconstruct initial environments and test that they worked in a single script.  Note this script took about 15 minutes to run in testing.
 
 For this example, we'll use the following yml file:
 ```yaml
@@ -80,3 +80,7 @@ Notably:
 
 Go ahead and create this yml file, and apply it with `kubectl apply -f 2_createTorchEnv.yml`. As before, you can watch the progress of the pod with `kubectl get pods` and `kubectl logs pytorch-install`.  If it is taking a while, you can also use `kubectl describe pod pytorch-install` to get a bit more information on the status of the pod.  Note that this pod make take a while before it registers as complete, as the relevant packages are larger than a gig in total for install size.  When the status of the pod changes from "Running" to "Complete", you'll know its done; alternatively, in the logs, you should see information about the total number of GPUs accessible by python at the end of the script after it completes.
 > Sometimes, you may want to run `watch kubectl get pods` on your frontend to monitor pods that may take a while to complete.
+
+If everything works correctly, after about 15 minutes `kubectl logs pytorch-install` should return something similar to:
+![image](https://github.com/heatherbaier/dist-ml/assets/7882645/67284660-7291-4a3f-a0fa-47f8a4f28a4b)
+
