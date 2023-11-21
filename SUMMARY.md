@@ -44,4 +44,3 @@
 * [Persistence & Python](k8s/python_conda.md)
 * [Setting up Torch](k8s/envWithPod.md)
 * [One Pod Torch with Data](k8s/singlePodTorch.md)
-* [One Pod, Multiple GPUs](k8s/singlePodMultipleGPUtorch.md)
