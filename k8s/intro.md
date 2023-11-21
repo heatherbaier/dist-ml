@@ -25,9 +25,11 @@ In kubernetes, you don't specify the explicit node or node type you want - inste
         requests:
           memory: "32Gi"
           nvidia.com/gpu: 1
+          cpu: "2"
         limits:
           memory: "32Gi"
           nvidia.com/gpu: 1
+          cpu: "2"
 ```
 Practically, this means you don't have to know much about the underlying architecture of the system - you just tell it what resources you need, and it will find them on the appropriate node(s).
 
