@@ -2,7 +2,7 @@
 
 ## What is K8S, and why use it over Torque / Batch systems?
 
-Here at William & Mary, we have access to two types of clusters - a Torque based batch cluster (see (this)[https://hmbaier.gitbook.io/distributed-ml-w-and-m/the-batch-system/what-is-the-batch-system)] guide), and a Kubernetes cluster.  Batch clusters operate in a fundamentally different way than Kubernetes clusters.  The key distinctions at William and Mary are:
+Here at William & Mary, we have access to two types of clusters - a Torque based batch cluster (see [this](https://hmbaier.gitbook.io/distributed-ml-w-and-m/the-batch-system/what-is-the-batch-system) guide), and a Kubernetes cluster.  Batch clusters operate in a fundamentally different way than Kubernetes clusters.  The key distinctions at William and Mary are:
 
 ### Node Architectures & Resource Requests
 
