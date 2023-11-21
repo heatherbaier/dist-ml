@@ -21,11 +21,11 @@ spec:
         requests:
           memory: "32Gi"
           nvidia.com/gpu: 3
-          cpu: "2"
+          cpu: "8"
         limits:
           memory: "32Gi"
           nvidia.com/gpu: 3
-          cpu: "2"
+          cpu: "8"
       volumeMounts:
         - name: home-volume
           mountPath: /kube/home/
