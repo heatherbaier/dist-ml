@@ -4,7 +4,7 @@
 
 Here at William & Mary, we have access to two types of clusters - a Torque based batch cluster (see (this)[https://hmbaier.gitbook.io/distributed-ml-w-and-m/the-batch-system/what-is-the-batch-system)] guide), and a Kubernetes cluster.  Batch clusters operate in a fundamentally different way than Kubernetes clusters.  The key distinctions at William and Mary are:
 
-###Node Architectures & Resource Requests
+##Node Architectures & Resource Requests
 
 In our batch systems, all nodes within a cluster are identical.  In our K8S clusters, you have mixed architectures (i.e., one node may have 0 GPUs, another may have 12).  This has implications for how resources are requested.  In our Batch system, if you wanted to check out a node with 12 cores and 128GB of memory, you could look up what node types have the memory you need (in this example, assuming "vortex" nodes have 128GB of memory total), and then explicitly specify what cores you want:
 ```
@@ -33,17 +33,13 @@ In kubernetes, you don't specify the explicit node or node type you want - inste
 ```
 Practically, this means you don't have to know much about the underlying architecture of the system - you just tell it what resources you need, and it will find them on the appropriate node(s).
 
-
-
-**Pods vs. Running on Cores and Isolation**
+##Pods vs. Running on Cores and Isolation
 
 In our the batch system, when you check out a series of cores, you are sharing some types of resources (i.e. memory) on an node.  Say, for example, you check out 6 cores on a node that has a total of 12, and then another user checks out the other 6.  Because our batch system doesn't have the ability to segment memory utilization, both users are now sharing the memory, and can crash one-anothers jobs if they use all of the memory on the node.  Because of that, we frequently suggest users check out all cores on a node.
 
 K8S isolates your resources into a special construct called a "Pod".  Once a Pod is created on a node, it is allocated exactly the resources requested, and is guaranteed access to those resources, irrespective of what other user pods may be running on the node.  
 
-
-
-**Containers and Research Replication**
+##Containers and Research Replication
 
 One of the biggest advantages of Kubernetes is that jobs are run within dynamically built containers.  A container is comprised of two things: a base image (essentially, an operating system such as Ubuntu, RHEL, Cent, or Windows), and then anything installed on top of that operating system (i.e., a program you download).  When you request resources and a pod, you always specify the base image that the pod will load.  Say, for example, you always want a script that runs on Ubuntu 18.04 - you can build an image that will always be identical, irrespective of how external dependencies may change.  This is specified in your job files, and generally looks something like this:
 ```yaml
@@ -60,3 +56,15 @@ The job submission file itself then specifies any commands you want to run withi
         - |
           apt-get update && apt-get install -y wget 
 ```
+This contrasts dramatically to our Batch system, in which the operating system is prescribed by our HPC team, and any binaries you need installed either need to be compiled on a node, or installed by the HPC team.  In containers, you have considerable control over the types of system-level binaries you may have access to.
+
+##Pros and Cons of Kubernetes / Batch - When to Pick Each
+| Feature                  | Batch Systems (e.g., Torque, Maui)        | Kubernetes                      |
+|--------------------------|-------------------------------------------|---------------------------------|
+| **Primary Use Case**     | High-performance computing, scientific and research computations. | Container orchestration for microservices and cloud-native applications. |
+| **Pros**                 | - Optimized for batch job scheduling.<br>- Advanced queue management.<br>- High resource utilization for batch jobs.<br>- Better suited for long, compute-intensive jobs. | - Excellent for managing containerized applications.<br>- Dynamic scaling and load balancing.<br>- Strong ecosystem and community.<br>- Ideal for microservices architecture. |
+| **Cons**                 | - Not designed for containerized applications.<br>- Steeper learning curve for those unfamiliar with HPC environments.<br>- Less flexible in handling diverse workload types. | - Not inherently designed for batch processing.<br>- Can be overkill for simple batch jobs.<br>- Complexity in setup and management. |
+| **Resource Management**  | - Fine-grained control over compute resources.<br>- Prioritization and reservation of resources for jobs. | - Automated resource allocation for pods.<br>- Focuses on optimal resource usage across containers. |
+| **Scalability**          | - Scales well within the scope of batch processing and HPC.<br>- Efficient in scheduling and resource management for large compute clusters. | - Highly scalable for containerized applications.<br>- Supports auto-scaling based on demand. |
+| **Flexibility**          | - Specialized for specific types of computational tasks (batch jobs). | - Highly flexible in managing a wide variety of applications.<br>- Easily integrates with CI/CD pipelines and cloud services. |
+| **Integration**          | - Integrates with HPC tools and software.<br>- More focused on traditional cluster computing. | - Broad integration capabilities with cloud providers, monitoring tools, and DevOps practices. |
