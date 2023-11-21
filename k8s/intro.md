@@ -48,7 +48,7 @@ One of the biggest advantages of Kubernetes is that jobs are run within dynamica
       image: "nvidia/samples:vectoradd-cuda11.2.1"
 ```
 
-The job submission file itself then specifies any commands you want to run within that operating system on the opd.  For example, after the base image example above is loaded (an nvidia debian environment), the below code would then install the program "wget" on every pod when the job is submitted.  You can choose to either bundle wget into the image itself, or install it later as a dependency, depending on your risk appetite for future changes to dependencies:
+The job submission file itself then specifies any commands you want to run within that operating system on the pod.  For example, after the base image example above is loaded (an nvidia debian environment), the below code would then install the program "wget" on every pod when the job is submitted.  You can choose to either bundle wget into the image itself, or install it later as a dependency, depending on your risk appetite for future changes to dependencies:
 ```yaml
      command:
         - /bin/bash
