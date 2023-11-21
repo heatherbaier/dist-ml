@@ -40,3 +40,4 @@
 
 ## Kubernetes
 * [Basics of Kubernetes](k8s/intro.md)
+* [Your First K8S Deployment](k8s/yourFirstDeployment.md)
