@@ -37,3 +37,6 @@
 
 * [Basics of Torch](distributed-pytorch-dask/torchbasics.md)
 * [PyTorch + DASK](distributed-pytorch-dask/torchdist.md)
+
+## Kubernetes
+* [Basics of Kubernetes](k8s/intro.md)
