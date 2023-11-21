@@ -110,6 +110,8 @@ This will output the base image the pod is using, which in this example is:
 
 Once you're done, you can type "exit".
 
+> As you type "kubectl" a lot, you may want to bind it to something shorter.  To do so, go into your home directory and type in "nano .bashrc".  If you want to bind "kubectl" to just "k", you can add the line `alias k='kubectl'` to that file.  Once you save it and restart your shell, you can replace "kubectl" with just "k" from that moment onward.
+
 ## Deleting your Pod
 Today, if you do not delete your pod, it will exist until all commands have run or the "activeDeadlineSeconds" limit has bene reached.  In this example, that is until 30 minutes have passed - the script sleeps for an infinite time, so will not ever finish, thus resulting in the walltime trigger of 30 minutes being the event that will destroy the pod.  If you do not put "sleep" at the end of your commands, the pod will simply run and then complete, which we'll show in future tutorials.
 
