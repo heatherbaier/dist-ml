@@ -161,4 +161,6 @@ spec:
           python /kube/home/gpu.py
 ```
 
-Go ahead and submit that with `kubectl apply -f 3_torchWithData.yml`, and then monitor the progress of torch using `kubectl logs torch-test`.  Note it may take around a minute for logs to start.  If the script works correctly, you should see CIFAR downloading, followed by a classification across a few epochs of training.
+Go ahead and submit that with `kubectl apply -f 3_torchWithData.yml`, and then monitor the progress of torch using `kubectl logs torch-test`.  Note it may take around a minute for logs to start.  If the script works correctly, you should see CIFAR downloading, followed by a classification across a few epochs of training:
+![image](https://github.com/heatherbaier/dist-ml/assets/7882645/3e40f672-28da-41a3-baa2-a32895d3a120)
+
