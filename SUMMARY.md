@@ -42,3 +42,4 @@
 * [Basics of Kubernetes](k8s/intro.md)
 * [Your First K8S Deployment](k8s/yourFirstDeployment.md)
 * [Persistence & Python](k8s/python_conda.md)
+* [Setting up Torch](k8s/envWithPod.md)
