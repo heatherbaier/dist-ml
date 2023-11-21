@@ -79,3 +79,4 @@ Notably:
 - This script has no sleep, so will terminate after completion.
 
 Go ahead and create this yml file, and apply it with `kubectl apply -f 2_createTorchEnv.yml`. As before, you can watch the progress of the pod with `kubectl get pods` and `kubectl logs pytorch-install`.  If it is taking a while, you can also use `kubectl describe pod pytorch-install` to get a bit more information on the status of the pod.  Note that this pod make take a while before it registers as complete, as the relevant packages are larger than a gig in total for install size.  When the status of the pod changes from "Running" to "Complete", you'll know its done; alternatively, in the logs, you should see information about the total number of GPUs accessible by python at the end of the script after it completes.
+> Sometimes, you may want to run `watch kubectl get pods` on your frontend to monitor pods that may take a while to complete.
