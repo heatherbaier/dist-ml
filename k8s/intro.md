@@ -58,13 +58,4 @@ The job submission file itself then specifies any commands you want to run withi
 ```
 This contrasts dramatically to our Batch system, in which the operating system is prescribed by our HPC team, and any binaries you need installed either need to be compiled on a node, or installed by the HPC team.  In containers, you have considerable control over the types of system-level binaries you may have access to.
 
-##Pros and Cons of Kubernetes / Batch - When to Pick Each
-| Feature                  | Batch Systems (e.g., Torque, Maui)        | Kubernetes                      |
-|--------------------------|-------------------------------------------|---------------------------------|
-| **Primary Use Case**     | High-performance computing, scientific and research computations. | Container orchestration for microservices and cloud-native applications. |
-| **Pros**                 | - Optimized for batch job scheduling.<br>- Advanced queue management.<br>- High resource utilization for batch jobs.<br>- Better suited for long, compute-intensive jobs. | - Excellent for managing containerized applications.<br>- Dynamic scaling and load balancing.<br>- Strong ecosystem and community.<br>- Ideal for microservices architecture. |
-| **Cons**                 | - Not designed for containerized applications.<br>- Steeper learning curve for those unfamiliar with HPC environments.<br>- Less flexible in handling diverse workload types. | - Not inherently designed for batch processing.<br>- Can be overkill for simple batch jobs.<br>- Complexity in setup and management. |
-| **Resource Management**  | - Fine-grained control over compute resources.<br>- Prioritization and reservation of resources for jobs. | - Automated resource allocation for pods.<br>- Focuses on optimal resource usage across containers. |
-| **Scalability**          | - Scales well within the scope of batch processing and HPC.<br>- Efficient in scheduling and resource management for large compute clusters. | - Highly scalable for containerized applications.<br>- Supports auto-scaling based on demand. |
-| **Flexibility**          | - Specialized for specific types of computational tasks (batch jobs). | - Highly flexible in managing a wide variety of applications.<br>- Easily integrates with CI/CD pipelines and cloud services. |
-| **Integration**          | - Integrates with HPC tools and software.<br>- More focused on traditional cluster computing. | - Broad integration capabilities with cloud providers, monitoring tools, and DevOps practices. |
+
