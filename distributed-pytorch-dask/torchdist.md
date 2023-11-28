@@ -89,7 +89,10 @@ import socket
 PROCESSES = 60
 EPOCHS_COUNT = 5
 
-def logger(string, path="/sciclone/home20/dsmillerrunfol/torchEX/log.dan"):
+BASE_PATH = "/sciclone/home/dsmillerrunfol/AML/TORCH/"
+IMAGE_PATH = "/sciclone/home/dsmillerrunfol/AML/TORCH/UCMerced_LandUse/Images"
+
+def logger(string, path=str(BASE_PATH+"distributedlog.log")):
     string = str(string)
     with open(path, "a") as f:
         f.write(string + "\n")
@@ -150,19 +153,19 @@ def initDist(rank, size, runID, EPOCHS_COUNT, backend='gloo'):
     """
     if(rank == 0):
         ip = socket.gethostbyname(socket.gethostname())
-        with open("/sciclone/home20/dsmillerrunfol/torchEX/ip_"+ runID +".dan", "w") as f:
+        with open(BASE_PATH+"ip_"+ runID +".dan", "w") as f:
             f.write(ip)
     else:
         ip = None
         while ip == None:
             try:
-                with open("/sciclone/home20/dsmillerrunfol/torchEX/ip_"+ runID + ".dan", "r") as f:
+                with open(BASE_PATH+"ip_"+ runID + ".dan", "r") as f:
                     ip = f.readlines()[0]
             except:
                 print("Waiting for master node to connect.")
                 time.sleep(1)
 
-    def logger(string, path="/sciclone/home20/dsmillerrunfol/torchEX/log.dan"):
+    def logger(string, path=BASE_PATH+"log.dan"):
         string = str(string)
         with open(path, "a") as f:
             f.write(string + "\n")
@@ -200,7 +203,7 @@ def initDist(rank, size, runID, EPOCHS_COUNT, backend='gloo'):
     logger(str(rank) + ": Loading imagery.")
     transforms = transforms.Compose([transforms.Resize((64,64)),
                                  transforms.ToTensor()])
-    images = datasets.ImageFolder("/sciclone/home20/dsmillerrunfol/torchEX/mercerImages", transform=transforms)
+    images = datasets.ImageFolder(IMAGE_PATH, transform=transforms)
     s = DistributedSampler(images)
     loader = DataLoader(images, batch_size=BATCH_SIZE, sampler=s)
     logger(str(rank) + " Dataset size:" + str(len(loader)))
@@ -235,7 +238,7 @@ def initDist(rank, size, runID, EPOCHS_COUNT, backend='gloo'):
                 logger(str(rank) + "||  Loss: " + str(loss) + " | " + str(current) + " of " + str(len(X) * num_of_batches))
 
         if rank == 0:
-            torch.save(ddp_model.module.state_dict(),"/sciclone/home20/dsmillerrunfol/torchEX/checkpoints/" + str(runID) + "_" + str(epoch)+".checkpoint")
+            torch.save(ddp_model.module.state_dict(),BASE_PATH+"checkpoints/" + str(runID) + "_" + str(epoch)+".checkpoint")
 
         #Prevents any node from continuing to optimize our model before it's done saving as the end of an epoch.
         dist.barrier()
@@ -291,12 +294,12 @@ def accuracyStatistics(model, dataLoader):
 model = models.resnet101(pretrained=False)
 
 #Now we need to load the weights for the network we just solved in Dask-world:
-model.load_state_dict(torch.load("/sciclone/home20/dsmillerrunfol/torchEX/checkpoints/" + str(runID) + "_" + str(EPOCHS_COUNT-1)+".checkpoint"))
+model.load_state_dict(torch.load(BASE_PATH+"checkpoints/" + str(runID) + "_" + str(EPOCHS_COUNT-1)+".checkpoint"))
 
 #Load our image data:
 transforms = transforms.Compose([transforms.Resize((64,64)),
                                  transforms.ToTensor()])
-images = datasets.ImageFolder("/sciclone/home20/dsmillerrunfol/torchEX/mercerImages", transform=transforms)
+images = datasets.ImageFolder(IMAGE_PATH, transform=transforms)
 loader = DataLoader(images, batch_size=4)
 
 #Create our crosstabulation matrix:
