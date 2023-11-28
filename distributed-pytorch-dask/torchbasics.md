@@ -59,6 +59,13 @@ from torch import nn
 import torch.nn.functional as F
 from torch.utils.data import DataLoader
 import pandas as pd
+from datetime import datetime
+
+#Lightweight logger
+def lLog(logID, type, message):
+    basePath = "/sciclone/home/dsmillerrunfol/AML/TORCH/"
+    with open(basePath + str(logID) + ".log", "a") as f:
+        f.write(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + " (" + str(type) + "): " + str(message) + "\n")
 
 #We are going to be deploying on CPU-based nodes in our distribution
 #tutorial, but if you have GPU's available the switch is fairly
@@ -78,12 +85,13 @@ transforms = transforms.Compose([transforms.Resize((64,64)),
 #Second we tell it where the dataset is using torchvision's handy
 #datasets loader. Note you'll have to change this path to wherever
 #your image data is living.
-images = datasets.ImageFolder("/sciclone/home20/dsmillerrunfol/torchEX/mercerImages", transform=transforms)
+lLog("default", "INFO", "Loading Images")
+images = datasets.ImageFolder("/sciclone/home/dsmillerrunfol/AML/TORCH/UCMerced_LandUse/Images", transform=transforms)
 #Gives us the statistics on how many images:
-print(images)
+lLog("default", "INFO", images)
 
 #Prints out the classes that were detected (and the Ids assigned)
-print(images.class_to_idx)
+lLog("default", "INFO", images.class_to_idx)
 
 #We're going to implement a very simple
 #sequential linear model, in which we'll be inputting
@@ -115,7 +123,7 @@ class NeuralNetwork(nn.Module):
         return x
 
 model = NeuralNetwork().to(device)
-print(model)
+lLog("default", "INFO", model)
 
 #Now we're going to load our data using a dataloader.
 #This let's us take only a small number of images at a time
@@ -148,7 +156,7 @@ def trainModel(dataLoader, model, loss_fn, optimizer):
     
 epochs = 20
 for t in range(epochs):
-    print("Epoch " + str(t))
+    lLog("default", "INFO", "Epoch " + str(t))
     trainModel(loader, model, loss_fn, optimizer)
 
 #At this point, we have a model that's been fit across 20 epochs.
@@ -176,5 +184,5 @@ def accuracyStatistics(model, dataLoader):
 
     return(cm)
 
-print(accuracyStatistics(model, loader))
+lLog("default", "INFO", accuracyStatistics(model, loader))
 ```
