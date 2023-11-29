@@ -36,3 +36,8 @@ spec:
 The above job will create two pods, each with at least 1 gpu.  The location of these pods may be arbitrary across the cluster, but each pod is guaranteed at least one gpu and 32 gigs of system memory.
 
 > Note that when you submit a job, you will be able to see the pods it creates with kubectl get pods.  However, you will also be able to see the job using kubectl get jobs.  If you want to resubmit your job, you will need to delete the original job with kubectl delete job <job-name>.
+
+# Defining the YAML file
+
+# Submitting the YAML file
+Note that we won't be able to apply here - we need to *create* our job, as we're using the special "generateName" function.  Thus, you'll run something like: `k create -f 5_distributedTorch.yml`. 
