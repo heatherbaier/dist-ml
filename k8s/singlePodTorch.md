@@ -8,7 +8,7 @@ kind: Pod
 metadata:
   name: file-passthrough
 spec:
-  restartPolicy: OnFailure
+  restartPolicy: Never
   activeDeadlineSeconds: 1800  # 30 minutes
   volumes:
     - name: home-volume
@@ -123,7 +123,7 @@ kind: Pod
 metadata:
   name: torch-test
 spec:
-  restartPolicy: OnFailure
+  restartPolicy: Never
   volumes:
     - name: home-volume
       persistentVolumeClaim:
