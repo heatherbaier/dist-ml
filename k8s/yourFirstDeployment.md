@@ -30,6 +30,7 @@ kind: Pod
 metadata:
   name: resource-info-pod
 spec:
+  activeDeadlineSeconds: 1800  # Pod will be terminated after 30 minutes
   containers:
     - name: resource-info-container
       image: "nvidia/samples:vectoradd-cuda11.2.1"
@@ -48,7 +49,7 @@ spec:
           echo "Memory limit: $MEMORY_LIMIT"
           echo "CPU limit: $CPU_LIMIT"
           echo "Running the main container process indefinitely..."
-          sleep 1800
+          sleep infinity
       env:
         - name: MEMORY_LIMIT
           valueFrom:
