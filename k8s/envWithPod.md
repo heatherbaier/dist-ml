@@ -11,11 +11,11 @@ kind: Pod
 metadata:
   name: pytorch-install
 spec:
-  restartPolicy: OnFailure
+  restartPolicy: Never
   volumes:
     - name: home-volume
       persistentVolumeClaim:
-        claimName: dsmr-vol-01  # Ensure this is your correct PVC
+        claimName: dsmillerrunfol-rwm # Ensure this is your correct PVC
   containers:
     - name: pytorch-setup-container
       image: "nvidia/samples:vectoradd-cuda11.2.1"
@@ -70,6 +70,7 @@ spec:
           else
               echo "No GPUs detected.  Something may have gone wrong, or you may not have asked for any in your pod."
           fi
+
 
 ```
 Notably:
