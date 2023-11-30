@@ -13,7 +13,7 @@ kind: Pod
 metadata:
   name: claim-example
 spec:
-  restartPolicy: OnFailure
+  restartPolicy: Never
   activeDeadlineSeconds: 1800  # 30 minutes
   volumes:
     - name: home-volume
@@ -100,11 +100,11 @@ kind: Pod
 metadata:
   name: conda-install
 spec:
-  restartPolicy: OnFailure
+  restartPolicy: Never
   volumes:
     - name: home-volume
       persistentVolumeClaim:
-        claimName: dsmr-vol-01
+        claimName: dsmillerrunfol-rwm
   containers:
     - name: conda-container
       image: "nvidia/samples:vectoradd-cuda11.2.1"
@@ -165,7 +165,7 @@ metadata:
   name: interactive-conda
 spec:
   activeDeadlineSeconds: 1800  # Pod will be terminated after 30 minutes
-  restartPolicy: OnFailure
+  restartPolicy: Never
   volumes:
     - name: home-volume
       persistentVolumeClaim:
@@ -175,11 +175,9 @@ spec:
       image: "nvidia/samples:vectoradd-cuda11.2.1"
       resources:
         requests:
-          memory: "32Gi"
-          nvidia.com/gpu: 1
+          memory: "16Gi"
         limits:
-          memory: "32Gi"
-          nvidia.com/gpu: 1
+          memory: "16Gi"
       volumeMounts:
         - name: home-volume
           mountPath: /kube/home/
