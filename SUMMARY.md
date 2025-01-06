@@ -6,12 +6,12 @@
 
 * [🎉 Requesting an Account](logging-in-and-setting-up-your-hpc-account/create.md)
 * [👋 Login & Basic Setup](logging-in-and-setting-up-your-hpc-account/login-and-basic-setup.md)
-* [🗺 PBSTOP - Your Cluster Roadmap](logging-in-and-setting-up-your-hpc-account/pbstop-your-cluster-roadmap.md)
+* [🗺️ PBSTOP - Your Cluster Roadmap](logging-in-and-setting-up-your-hpc-account/pbstop-your-cluster-roadmap.md)
 * [🐍 Uploading Files](logging-in-and-setting-up-your-hpc-account/filezilla.md)
 
 ## The Batch System
 
-* [👩🌾 What is a batch system?](the-batch-system/what-is-the-batch-system.md)
+* [👩‍🌾 What is a batch system?](the-batch-system/what-is-the-batch-system.md)
 * [👷 Jobs](the-batch-system/jobs.md)
 * [Interactive Jobs](the-batch-system/interactive-jobs.md)
 * [Non-Interactive Jobs](the-batch-system/non-interactive-jobs.md)
@@ -23,7 +23,7 @@
 * [🐍 Conda Environments](logging-in-and-setting-up-your-hpc-account/conda-environments.md)
 * [Python + Conda in a Job](the-batch-system/running-python-within-a-job.md)
 * [Python & MPI](parallel-computing/launching-parallel-programs-on-the-hpc-using-mpi.md)
-* [Python & Dask](parallel-computing/dask\_intro.md)
+* [Python & Dask](parallel-computing/dask_intro.md)
 
 ## Distributed sklearn
 
@@ -39,6 +39,7 @@
 * [PyTorch + DASK](distributed-pytorch-dask/torchdist.md)
 
 ## Kubernetes
+
 * [Basics of Kubernetes](k8s/intro.md)
 * [Your First K8S Deployment](k8s/yourFirstDeployment.md)
 * [Persistence & Python](k8s/python_conda.md)
